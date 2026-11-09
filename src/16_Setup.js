@@ -56,7 +56,7 @@ function setupWorkbook() {
   });
   run('validation', () => {
     LIST_COLS.forEach(([n, h]) => body_(ss.getSheetByName(n), hCol_(n, h)).setDataValidation(
-      SpreadsheetApp.newDataValidation().requireValueInList(ENUMS[h === 'Role' ? 'Role' : h], true).setAllowInvalid(false).build()));
+      SpreadsheetApp.newDataValidation().requireValueInList(ENUMS[h], true).setAllowInvalid(false).build()));
     Object.keys(CHECKBOX_COLS).forEach(n => CHECKBOX_COLS[n].forEach(h => body_(ss.getSheetByName(n), hCol_(n, h)).insertCheckboxes()));
     const cyc = ss.getSheetByName(CYCLES); // existing rows only; new rows get their checkboxes on append
     const last = db().lastRow(cyc);
