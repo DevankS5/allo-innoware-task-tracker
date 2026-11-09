@@ -45,6 +45,9 @@ function registerHandlerTests(def) {
     const r = processManagerAcknowledgement(c.Cycle_ID, { email: '', source: 'UNVERIFIED' });
     const after = W.cycle(c.Cycle_ID);
     assertEq(r.accepted, false); assertEq(after.Manager_Acknowledged, false); assert(isBlank(after.Manager_Ack_At), 'no ack time recorded');
+    tbl(SHEETS.TASK_CYCLES).update(c.__row, { Manager_Acknowledged: true });
+    const f = processManagerAcknowledgement(c.Cycle_ID, { email: c.Manager_Email, source: 'ASSIGNMENT_PROTECTION_FALLBACK' });
+    assertEq(f.accepted, false, 'a row-derived fallback identity proves nothing, so it cannot acknowledge');
   });
 
   def('actor resolution: assignment-protection fallback is only used when protection is declared active', () => {

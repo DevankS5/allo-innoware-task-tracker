@@ -80,7 +80,8 @@ function processManagerAck_(cycleId, a) {
   }
   if (c.Status !== STATUS.DUE && c.Status !== STATUS.OVERDUE) return reject('Only DUE or OVERDUE cycles can be acknowledged (this one is ' + c.Status + ').');
   // Fail closed: an acknowledgement suppresses escalation, so an unverifiable actor must never be able to record one.
-  if (!a.email) return reject('Your identity could not be verified, so the acknowledgement was not recorded. Use a signed-in Workspace account or ask an admin.');
+  // The assignment-protection fallback is a completion-only convenience: it takes the row's own email, so it proves nothing here.
+  if (!a.email || a.source === SOURCE.FALLBACK) return reject('Your identity could not be verified, so the acknowledgement was not recorded. Use a signed-in Workspace account or ask an admin.');
   const m = memberByEmail(a.email);
   if (lc(a.email) !== lc(c.Manager_Email) && !(m && (m.Role === 'ADMIN' || toBool(m.Can_Acknowledge))))
     return reject('Only ' + c.Manager_Email + ' (or an approved manager/admin) can acknowledge this task.');

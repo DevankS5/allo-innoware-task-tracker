@@ -19,7 +19,7 @@ function handleTaskCyclesEdit(e) {
       if (hit(cSub) && sh.getRange(r, cSub).getValue() === true)
         msgs.push(processCompletion(id, resolveActor(e, str(sh.getRange(r, cycCol('Assigned_To_Email')).getValue()))).message);
       if (hit(cAck) && sh.getRange(r, cAck).getValue() === true)
-        msgs.push(processManagerAcknowledgement(id, resolveActor(e, str(sh.getRange(r, cycCol('Manager_Email')).getValue()))).message);
+        msgs.push(processManagerAcknowledgement(id, resolveActor(e, '')).message); // no row-derived fallback for acknowledgements
     } catch (err) {
       logError('handleTaskCyclesEdit', err, id, 'ERROR');
       msgs.push(err.message === 'LOCK_TIMEOUT' ? 'System busy: untick the box and try again in a minute.' : 'Error: please tell an admin (see Error_Log).');

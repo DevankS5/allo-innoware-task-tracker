@@ -65,6 +65,6 @@ Then open the new spreadsheet and use the **Tasks** menu in this order:
 ## Known limits and what was not verified
 
 - **Not run against live Google services.** The engine and all rules are tested in Node. `SheetStore`, the edit trigger on a real sheet, workbook setup, dashboard formulas, range protections and filter views need a first-run check in a real spreadsheet (use the **Run Demo Test Suite** menu item and the demo clock).
-- On consumer Gmail accounts `e.user` is often blank, so completions record `UNVERIFIED` and manager acknowledgements are refused. Use Google Workspace accounts, or set `ROW_PROTECTION_ACTIVE=TRUE` only after confirming per-row protections work, which enables the assignment-based fallback identity.
+- On consumer Gmail accounts `e.user` is often blank, so completions record `UNVERIFIED` and manager acknowledgements are refused. Use Google Workspace accounts, or set `ROW_PROTECTION_ACTIVE=TRUE` only after confirming per-row protections work, which enables the assignment-based fallback identity for employee completions only. Manager acknowledgements never use the fallback.
 - Employees can edit proof after completion (audit trail records the completion, not later edits).
 - Apps Script email quota (100/day consumer, 1,500 Workspace) bounds alert volume; quota failures are logged and retried.
