@@ -40,6 +40,8 @@ const HEADERS = {
     'Execution_ID', 'Resolved', 'Resolution_Notes'],
 };
 
+const CYCLES = SHEETS.TASK_CYCLES; // shorthand used throughout
+
 const ENUMS = {
   Frequency_Type: ['DAILY', 'INTERVAL'],
   Recurrence_Mode: ['DAILY_WORKDAY', 'AFTER_COMPLETION', 'FIXED_CADENCE'],

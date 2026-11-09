@@ -1,7 +1,6 @@
 /* Cycle ledger operations: create (idempotent by Cycle_Key), generate daily/initial cycles, refresh status.
  * Internal helpers: they do NOT take the script lock; entry points (dispatcher, completion, menu) do. */
 
-const CYCLES = SHEETS.TASK_CYCLES;
 function findCycle(id) { return tbl(CYCLES).rows().find(c => c.Cycle_ID === id) || null; }
 
 /** Appends one snapshotted cycle unless its Cycle_Key already exists. Returns the saved row or null. */
