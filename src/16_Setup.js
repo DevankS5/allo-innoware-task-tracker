@@ -146,13 +146,14 @@ function applyProtections_(ss) {
   ss.getSheets().forEach(sh => sh.getProtections(SpreadsheetApp.ProtectionType.SHEET).concat(sh.getProtections(SpreadsheetApp.ProtectionType.RANGE))
     .filter(p => /^Tracker:/.test(p.getDescription())).forEach(p => p.remove()));
   Object.keys(HEADERS).filter(n => n !== CYCLES).concat([SHEETS.DASHBOARD]).forEach(n => lock(ss.getSheetByName(n).protect(), n + ' is admin/script only'));
-  const sh = ss.getSheetByName(CYCLES), rows = sh.getMaxRows(); let start = 0;
+  const sh = ss.getSheetByName(CYCLES); let start = 0;
   HEADERS[CYCLES].concat(['']).forEach((h, i) => { // contiguous runs of non-editable columns
     const system = h !== '' && EDITABLE_CYCLE_COLS.indexOf(h) < 0;
     if (system && !start) start = i + 1;
-    if (!system && start) { lock(sh.getRange(1, start, rows, i + 1 - start).protect(), 'Task_Cycles system columns'); start = 0; }
+    if (!system && start) { // whole columns ('C:F'), so rows appended later are covered too
+      lock(sh.getRange(colL_(start) + ':' + colL_(i)).protect(), 'Task_Cycles system columns'); start = 0;
+    }
   });
-  lock(sh.getRange(1, 1, 1, HEADERS[CYCLES].length).protect(), 'Task_Cycles header');
 }
 
 /** Saved filter views per employee / manager plus 'All Escalated'. Needs the Sheets advanced service (enabled in appsscript.json). */
