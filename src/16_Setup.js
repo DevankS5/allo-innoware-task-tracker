@@ -154,6 +154,7 @@ function applyProtections_(ss) {
       lock(sh.getRange(colL_(start) + ':' + colL_(i)).protect(), 'Task_Cycles system columns'); start = 0;
     }
   });
+  lock(sh.getRange(1, 1, 1, HEADERS[CYCLES].length).protect(), 'Task_Cycles header'); // covers headers above the editable columns
 }
 
 /** Saved filter views per employee / manager plus 'All Escalated'. Needs the Sheets advanced service (enabled in appsscript.json). */
