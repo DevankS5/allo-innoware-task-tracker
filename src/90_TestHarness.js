@@ -57,7 +57,7 @@ const W = {
 function runSelfTests() {
   const prevStore = _store, prevMailer = _mailer, tests = [];
   const def = (name, fn) => tests.push({ name, fn });
-  [registerCalendarTests, registerRecurrenceTests, registerWorkflowTests].forEach(r => r(def)); // each tests file exposes one register*Tests(def)
+  [registerCalendarTests, registerRecurrenceTests, registerWorkflowTests, registerAlertTests].forEach(r => r(def)); // each tests file exposes one register*Tests(def)
   let passed = 0; const failures = [];
   try {
     tests.forEach(t => {
