@@ -79,8 +79,10 @@ function processManagerAck_(cycleId, a) {
     return { accepted: true, noop: true, message: 'Already acknowledged; no change.', cycleId };
   }
   if (c.Status !== STATUS.DUE && c.Status !== STATUS.OVERDUE) return reject('Only DUE or OVERDUE cycles can be acknowledged (this one is ' + c.Status + ').');
+  // Fail closed: an acknowledgement suppresses escalation, so an unverifiable actor must never be able to record one.
+  if (!a.email) return reject('Your identity could not be verified, so the acknowledgement was not recorded. Use a signed-in Workspace account or ask an admin.');
   const m = memberByEmail(a.email);
-  if (a.email && lc(a.email) !== lc(c.Manager_Email) && !(m && (m.Role === 'ADMIN' || toBool(m.Can_Acknowledge))))
+  if (lc(a.email) !== lc(c.Manager_Email) && !(m && (m.Role === 'ADMIN' || toBool(m.Can_Acknowledge))))
     return reject('Only ' + c.Manager_Email + ' (or an approved manager/admin) can acknowledge this task.');
   if (!str(c.Manager_Notes)) return reject('Enter a short action note in Manager_Notes before acknowledging.');
   tbl(CYCLES).update(c.__row, { Manager_Acknowledged: true, Manager_Ack_At: now, Manager_Ack_By_Email: a.email, Manager_Ack_Source: a.source, Updated_At: now });

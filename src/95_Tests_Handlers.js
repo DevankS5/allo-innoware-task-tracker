@@ -38,6 +38,15 @@ function registerHandlerTests(def) {
     assertEq(done.Status, 'COMPLETED'); assertEq(done.Completed_By_Source, 'UNVERIFIED'); assertEq(done.Completed_By_Email, '');
   });
 
+  def('manager ack fails closed: an unverifiable actor cannot acknowledge (it would suppress escalation)', () => {
+    step('2026-11-10 17:30'); // 7D task due 17:00 -> OVERDUE
+    const c = W.cycles('PORTAL-7D-001')[0];
+    tbl(SHEETS.TASK_CYCLES).update(c.__row, { Manager_Notes: 'Chasing the employee', Manager_Acknowledged: true });
+    const r = processManagerAcknowledgement(c.Cycle_ID, { email: '', source: 'UNVERIFIED' });
+    const after = W.cycle(c.Cycle_ID);
+    assertEq(r.accepted, false); assertEq(after.Manager_Acknowledged, false); assert(isBlank(after.Manager_Ack_At), 'no ack time recorded');
+  });
+
   def('actor resolution: assignment-protection fallback is only used when protection is declared active', () => {
     assertEq(resolveActor({ user: null }, EMP.B).source, 'UNVERIFIED');
     setSetting('ROW_PROTECTION_ACTIVE', 'TRUE'); resetCaches();
