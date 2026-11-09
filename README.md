@@ -32,6 +32,16 @@ npm test
 
 34 tests: the 8 assignment scenarios (daily completion, 7/15/30-day cadences, WhatsApp attestation, manager acknowledgement, both escalation paths, timing boundaries incl. Friday -> Monday, idempotency) plus failure cases (duplicate triggers, bad proof, wrong person, mail quota, interrupted send, timezone mismatch, missing next cycle). CI runs the same command.
 
+## Preview
+
+These are **engine previews, not Google Sheets screenshots** (no live spreadsheet exists yet). They are rendered from this repo's real code with the in-memory store and the TEST clock; regenerate with `node scripts/preview.js <dir>`.
+
+A simulated day (clock 18:31). Portal Task A was completed with a ticket ID and its next cycle was scheduled +7 days. Daily Operations Update was acknowledged by the manager, so it is not escalated. Portal Tasks B and C were never acknowledged, so they got a first alert, a reminder and a leadership escalation:
+
+![Task_Cycles and Alert_Log after a simulated day](docs/img/ledger-preview.png)
+
+![npm test output](docs/img/tests-preview.png)
+
 ## Deploy
 
 Needs Node 18+, a Google account, and the Apps Script API enabled at <https://script.google.com/home/usersettings>.
