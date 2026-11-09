@@ -1,0 +1,12 @@
+{
+  "name": "allo-innoware-task-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Recurring task tracking and escalation automation on Google Sheets + Apps Script",
+  "scripts": {
+    "test": "node tests/run.js",
+    "push": "clasp push",
+    "deploy:create": "clasp create --type sheets --title \"Allo Innoware - Recurring Task Tracker\" --rootDir src"
+  },
+  "license": "UNLICENSED"
+}
