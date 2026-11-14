@@ -2,6 +2,12 @@
 
 Google Sheets + Apps Script system that tracks recurring operational tasks (daily WhatsApp reports, 7/15/30-day portal tasks), records proof of completion, and alerts managers and leadership on a fixed SLA. The full specification is in [`docs/`](docs/README.md) (HLD, LLD, SLA rules, Apps Script design, test plan).
 
+## Live Google Sheets prototype
+
+**[Open the live Allo Innoware Task Tracker](GOOGLE_SHEET_URL)** (Editor access granted to the evaluator; see [DEMO.md](DEMO.md) for the walkthrough).
+
+It contains the nine generated tabs: Dashboard, Task_Master, Team, Task_Cycles, Alert_Log, Audit_Log, Holiday_Calendar, Settings, Error_Log. The workbook is built by `setupWorkbook()` from this repo, not assembled by hand.
+
 ## How it works
 
 - `Task_Master` defines tasks. `Task_Cycles` is the single ledger: one row per occurrence, keyed deterministically (`Task|DAILY|date`, `Task|INTERVAL|date|time`) so nothing is ever created twice.
