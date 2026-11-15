@@ -140,7 +140,8 @@ function buildDashboard_(ss) {
 function applyProtections_(ss) {
   const admins = activeMembers('ADMIN').map(m => str(m.Member_Email)).concat([cfg('AUTOMATION_OWNER_EMAIL')]).filter(e => e);
   const lock = (p, desc) => {
-    p.setDescription('Tracker: ' + desc); p.removeEditors(p.getEditors()); p.setDomainEdit(false);
+    p.setDescription('Tracker: ' + desc); p.removeEditors(p.getEditors());
+    try { p.setDomainEdit(false); } catch (x) { /* consumer Gmail: not on a domain, nothing to turn off; must not abort the remaining protections */ }
     admins.forEach(e => { try { p.addEditor(e); } catch (x) { /* not a Google account */ } });
   };
   ss.getSheets().forEach(sh => sh.getProtections(SpreadsheetApp.ProtectionType.SHEET).concat(sh.getProtections(SpreadsheetApp.ProtectionType.RANGE))
