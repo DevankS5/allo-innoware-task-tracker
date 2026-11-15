@@ -2,6 +2,9 @@
 
 ## HLD / LLD Specification Pack
 
+> [!TIP]
+> **New here?** Start with the [project README](../README.md) for a plain-language overview, or the [reviewer guide](../DEMO.md) for a 5-minute tour of the live sheet. This pack is the detailed engineering specification.
+
 **Document purpose:** Convert the assignment brief into an implementable Google Sheets + Google Apps Script design. This pack defines the operating model, workbook schema, recurrence engine, employee workflow, manager acknowledgement, SLA escalation, idempotency controls, test plan, and deployment steps.
 
 **Target users:** 3–4 employees, one or more managers, and a leadership recipient group.
@@ -47,14 +50,14 @@ The workbook has these principal tabs:
 
 | File | Contents |
 |---|---|
-| `01-HLD.md` | High-Level Design: architecture, components, workflows, decisions, constraints, and non-functional requirements |
-| `02-LLD.md` | Low-Level Design: exact tab schemas, fields, state machine, validations, formulas, data keys, and function contracts |
-| `03-RECURRENCE-SLA.md` | Recurrence semantics, business calendar, manager response SLA, escalation timing, and WhatsApp daily-task evidence method |
-| `04-APPS-SCRIPT-DESIGN.md` | Apps Script module layout, trigger model, pseudocode, locking, idempotency, email templates, and error handling |
-| `05-TEST-PLAN.md` | Eight required assignment tests plus negative, boundary, and acceptance tests |
-| `06-IMPLEMENTATION-DEPLOYMENT.md` | Build sequence, workbook setup, permissions, trigger installation, deployment checklist, and handover |
-| `07-SECURITY-OPERATIONS.md` | Permissions, identity limitations, audit, privacy, operational monitoring, and scale boundaries |
-| `08-PLATFORM-REFERENCES.md` | Official Google documentation and platform constraints that shape the design |
+| [`01-HLD.md`](01-HLD.md) | High-Level Design: architecture, components, workflows, decisions, constraints, and non-functional requirements |
+| [`02-LLD.md`](02-LLD.md) | Low-Level Design: exact tab schemas, fields, state machine, validations, formulas, data keys, and function contracts |
+| [`03-RECURRENCE-SLA.md`](03-RECURRENCE-SLA.md) | Recurrence semantics, business calendar, manager response SLA, escalation timing, and WhatsApp daily-task evidence method |
+| [`04-APPS-SCRIPT-DESIGN.md`](04-APPS-SCRIPT-DESIGN.md) | Apps Script module layout, trigger model, pseudocode, locking, idempotency, email templates, and error handling |
+| [`05-TEST-PLAN.md`](05-TEST-PLAN.md) | Eight required assignment tests plus negative, boundary, and acceptance tests |
+| [`06-IMPLEMENTATION-DEPLOYMENT.md`](06-IMPLEMENTATION-DEPLOYMENT.md) | Build sequence, workbook setup, permissions, trigger installation, deployment checklist, and handover |
+| [`07-SECURITY-OPERATIONS.md`](07-SECURITY-OPERATIONS.md) | Permissions, identity limitations, audit, privacy, operational monitoring, and scale boundaries |
+| [`08-PLATFORM-REFERENCES.md`](08-PLATFORM-REFERENCES.md) | Official Google documentation and platform constraints that shape the design |
 
 ---
 
