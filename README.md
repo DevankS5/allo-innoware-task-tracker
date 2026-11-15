@@ -35,7 +35,7 @@ No new software to install: it is a normal Google Sheet with a script attached.
 ## A task's life, step by step
 
 ```mermaid
-flowchart LR
+flowchart TD
     A([Task scheduled]) --> B{Done by the<br/>deadline?}
     B -- Yes, with proof --> C([✅ Completed<br/>next one created])
     B -- No --> D[📧 Manager alerted]
