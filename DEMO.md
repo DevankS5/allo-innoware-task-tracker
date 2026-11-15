@@ -2,7 +2,7 @@
 
 ## 1. Google Sheet
 
-[Open Allo Innoware Task Tracker](GOOGLE_SHEET_URL)
+[Open Allo Innoware Task Tracker](https://docs.google.com/spreadsheets/d/1NHwzfoNeDtnCbbGegbYEe47Oxhpt9fIR9QEw4F0VRXY/edit)
 
 Run from the sheet menu **Allo Innoware - Recurring Task Tracker**.
 
