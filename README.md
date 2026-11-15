@@ -81,12 +81,12 @@ These screenshots are from the [live sheet](https://docs.google.com/spreadsheets
 
 | What was tried | What happened |
 |---|---|
-| 7-day portal task completed with a ticket ID | ✅ Closed, name and time recorded, next one due 23 Nov 17:00 |
+| 7-day portal task completed with a ticket ID | ✅ Closed, employee email and time recorded, next one due 23 Nov 17:00 |
 | Submit ticked **without** a ticket ID | ✅ Refused with a message; the tick was undone |
 | Daily task completed with a WhatsApp reference | ✅ Closed |
 | 30-day task completed after leadership had been alerted | ✅ Closed, next one due 16 Dec |
 | Tasks still open at 18:31 | ✅ Manager alert and leadership escalation sent for each |
-| Manager wrote a note and ticked acknowledge | ✅ Time and name recorded; task stays open until done |
+| Manager wrote a note and ticked acknowledge | ✅ Time and manager email recorded; task stays open until done |
 | Left running for about 26 hours (~300 checks) | ✅ Still 6 emails in total: no duplicates |
 
 <table>
