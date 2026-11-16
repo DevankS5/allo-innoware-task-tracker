@@ -167,7 +167,7 @@ clasp push
 
 Then open the spreadsheet and use the **Tasks** menu in this order:
 
-1. **Set up workbook (first run)**: creates tabs, validation, dashboard, protections, filter views, and seeds example data (`example.com` team, five tasks).
+1. **Set up workbook (first run)**: creates tabs, validation, dashboard, protections, filter views, and seeds example data (`example.com` team, the four assignment tasks).
 2. Replace seed addresses in `Team` and `Task_Master`; set `TEST_RECIPIENT_EMAIL` and `SEND_EMAILS=TRUE` in `Settings`.
 3. **Create Initial Cycles**, then **Run Health Check** (must be clean).
 4. **Install/Repair Triggers**, signed in as the operations-owned account (the trigger owner sends the mail).
