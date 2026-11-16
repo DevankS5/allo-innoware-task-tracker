@@ -20,7 +20,7 @@ Allo Innoware has jobs that repeat: a daily WhatsApp operations update and porta
 | Step | Open this tab | What to notice |
 |---|---|---|
 | 1 | **Dashboard** | Totals for open, overdue, unacknowledged and escalated tasks. This is the manager's view. |
-| 2 | **Task_Master** | The five recurring tasks: who owns each, how often it repeats, the due time, and the proof it needs. |
+| 2 | **Task_Master** | The four recurring tasks (one per assignment task): who owns each, how often it repeats, the due time, and the proof it needs. |
 | 3 | **Task_Cycles** | The main list, one row per occurrence. Look at `Status` (`COMPLETED`, `OVERDUE`…), `Employee_Proof`, `Completed_At` / `Completed_By_Email`, and the manager columns `Manager_Notes` / `Manager_Ack_At`. Completed portal tasks have a new row for their next due date. |
 | 4 | **Alert_Log** | One row per email: manager alert or leadership escalation, with a `[TEST]` subject and the time sent. Six rows, even though the script has checked about 300 times. |
 | 5 | **Audit_Log** | The full history: every completion, acknowledgement, new cycle and escalation, with who and when. |
